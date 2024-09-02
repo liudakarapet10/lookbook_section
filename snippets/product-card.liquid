@@ -1,0 +1,73 @@
+{%- assign product_form_id = 'product-form-' | append: block.id -%}
+
+<product-card data-handle="{{ product.handle }}" data-shop-currency="{{ shop.currency }}" data-section-id="{{ section.id }}">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+
+    <img src="{{ product.media[0] | img_url }}" alt="{{ product.title }}">
+
+    {% render 'product-variant-picker',
+        product: product,
+        block: block,
+        product_form_id: product_form_ids
+    %}
+
+
+    <div role="status" class="price">
+        <div class="sale_price"> {{ product.price | money_without_currency }} {{ shop.currency }}</div>
+        {% if product.compare_at_price > product.price %}
+            <s class="old_price"> {{ product.compare_at_price | money_without_currency }} {{ shop.currency }}</s>
+        {% endif %}
+    </div>
+
+
+    <product-form>
+                {%- form 'product',
+                  product,
+                  id: product_form_id,
+                  class: 'form',
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ product.selected_or_first_available_variant.id }}"
+                    class="product-variant-id"
+                    {% if product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                  <button
+                    id="{{ product_form_id }}-submit"
+                    type="submit"
+                    name="add"
+                    class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add{% endif %}"
+                    aria-haspopup="dialog"
+                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
+                    aria-live="polite"
+                    data-sold-out-message="true"
+                    {% if product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                    <span class="sold-out-message hidden">
+                      {{ 'products.product.sold_out' | t }}
+                    </span>
+                    {%- if horizontal_quick_add -%}
+                      <span class="icon-wrap">
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
+                      </span>
+                    {%- endif -%}
+                    {%- render 'loading-spinner' -%}
+                  </button>
+                {%- endform -%}
+              </product-form>
+</product-card>
