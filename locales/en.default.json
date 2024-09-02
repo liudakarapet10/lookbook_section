@@ -315,6 +315,9 @@
     "footer": {
       "payment": "Payment methods"
     },
+    "lookbook_section": {
+      "shop_btn": "Shop the look"
+    },
     "featured_blog": {
       "view_all": "View all",
       "onboarding_title": "Blog post",
