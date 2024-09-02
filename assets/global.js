@@ -1066,6 +1066,7 @@ class VariantSelects extends HTMLElement {
           event,
           target,
           selectedOptionValues: this.selectedOptionValues,
+          selectedOptions: this.selectedOptions
         },
       });
     });
@@ -1105,6 +1106,12 @@ class VariantSelects extends HTMLElement {
 
   getInputForEventTarget(target) {
     return target.tagName === 'SELECT' ? target.selectedOptions[0] : target;
+  }
+
+  get selectedOptions() {
+    return Array.from(this.querySelectorAll('select option[selected], fieldset input:checked')).map(
+      ({ value }) => value 
+    );
   }
 
   get selectedOptionValues() {
