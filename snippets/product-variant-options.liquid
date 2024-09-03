@@ -17,7 +17,7 @@
   %}
 {% endcomment %}
 {%- liquid
-  assign product_form_id = 'product-form-' | append: section.id
+  assign product_form_id = 'product-form-' | append: block.id
 -%}
 
 {%- for value in option.values -%}
@@ -40,7 +40,7 @@
   -%}
 
   {%- capture input_id -%}
-    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+    {{ block.id }}-{{ option.position }}-{{ forloop.index0 -}}
   {%- endcapture -%}
 
   {%- capture input_name -%}

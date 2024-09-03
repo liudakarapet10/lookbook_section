@@ -10,8 +10,8 @@
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
-    id="variant-selects-{{ section.id }}"
-    data-section="{{ section.id }}"
+    id="variant-selects-{{ block.id }}"
+    data-section="{{ block.id }}"
     {{ block.shopify_attributes }}
   >
     {%- for option in product.options_with_values -%}
