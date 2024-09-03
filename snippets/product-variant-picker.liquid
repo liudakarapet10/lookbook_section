@@ -68,8 +68,6 @@
           
           {%- if option.values.size == 1 -%}
             {%- assign value = option.values[0] -%}
-            <!-- Прихований інпут для єдиної опції -->
-             <span>{{ value }}</span>
             <input
               type="hidden"
               name="options[{{ option.name | escape }}]"
