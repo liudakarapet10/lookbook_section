@@ -41,14 +41,12 @@
     <div js-modal class="modal">
       <div js-modal-content class="modal__inner">
         <div class="modal__body">
-            <div>
-              {% if image != blank %}
-                <div>
-                  <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt}}">
-                </div>
-              {% endif %}
-            </div>
-            <div class="modal_body__products_wrapper">
+            {% if image != blank %}
+              <div class="modal__body_item">
+                <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt}}">
+              </div>
+            {% endif %}
+            <div class="modal_body__products_wrapper modal__body_item">
               {% for block in section.blocks %}
                 {% assign product = block.settings.product %}
     
