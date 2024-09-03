@@ -1,0 +1,5 @@
+templates/*.json
+sections/*.json
+sections/*.json
+setting_data.json
+setting_schema.json
