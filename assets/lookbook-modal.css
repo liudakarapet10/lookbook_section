@@ -1,3 +1,50 @@
+.lookbook_content_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lookbook_content_wrapper img{
+   width: 100%;
+   height: auto;
+}
+
+.lookbook_content_wrapper_desc{
+    width: 90%;
+    margin: 15px auto;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.lookbook_content_wrapper button{
+   width: 80%; 
+   background-color: #8E8E8F;
+   color: #fff;
+   padding: 15px;
+   text-align: center;
+   border: none;
+   font-size: 12px;
+}
+
+@media screen and (min-width: 750px){
+    .lookbook_content_wrapper{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .lookbook_content_wrapper div.item{
+        width: calc(100% / 2);
+    }
+
+    .lookbook_content_wrapper button{
+        max-width: 200px;
+        margin: 40px auto 0; 
+    }
+}
+
+
+/* Styles for modal */
+
 body.is-locked {
     position: relative;
     overflow-y: hidden;
@@ -53,6 +100,11 @@ body.is-locked {
   
   .modal__body {
     width: 100%;
+    max-height: 60vh;
+    max-height: 60dvh;
+    overflow-y: auto;
+    padding-right: 15px;
+    box-sizing: border-box; 
   }
   
   .modal__copy {
@@ -75,7 +127,7 @@ body.is-locked {
     outline: none;
     padding: 0;
     position: absolute;
-    top: -24px;
+    top: -30px;
     right: 0;
     height: 24px;
     width: 24px;
@@ -93,6 +145,12 @@ body.is-locked {
   .modal__close path {
     fill: #fff;
   }
+
+
+  .modal__body img{
+    width: 100%;
+    height: auto;
+  }
   
   
   @media (min-width: 992px) {
@@ -103,6 +161,12 @@ body.is-locked {
     .modal__close {
       top: -48px;
       right: -48px;
+    }
+
+
+    .modal__body {
+        display: flex;
+        gap: 20px;
     }
   }
   
