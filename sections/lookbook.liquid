@@ -1,5 +1,10 @@
-
 {{ 'lookbook-modal.css' | asset_url | stylesheet_tag }}
+
+
+{% liquid
+  assign image = section.settings.image
+  assign description = section.settings.description
+%}
 
 <style>
   .section-{{ section.id }}-padding {
@@ -16,44 +21,44 @@
 </style>
 
 
-<div class="section-{{ section.id }}">
-  <div>
-    {% if  section.settings.image != blank %}
-      <div>
-        <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{section.settings.image.alt}}">
+<div class="section-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="lookbook_content_wrapper">
+    {% if  image != blank %}
+      <div class="item">
+        <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt}}">
       </div>
     {% endif %}
-    <div>
-      <h2>{{ section.settings.description }}</h2>
-    </div>
-  </div>
-  <div>
-
+    {% if description != blank %}
+      <div class='lookbook_content_wrapper_desc item'>
+        {{ description }}
+      </div>
+    {% endif %}
     <button js-modal-trigger>
       {{ 'sections.lookbook_section.shop_btn' | t }}
     </button>
-
+  </div>
+  <div>
     <div js-modal class="modal">
       <div js-modal-content class="modal__inner">
         <div class="modal__body">
-          <div>
-            {% if  section.settings.image != blank %}
-              <div>
-                <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{section.settings.image.alt}}">
-              </div>
-            {% endif %}
+            <div>
+              {% if image != blank %}
+                <div>
+                  <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt}}">
+                </div>
+              {% endif %}
+            </div>
+            <div class="modal_body__products_wrapper">
+              {% for block in section.blocks %}
+                {% assign product = block.settings.product %}
+    
+                {%- if product != blank -%}
+                  {% render 'product-card',product: product, block: block %}
+                {%- endif -%}  
+            
+              {% endfor %}
+            </div>
           </div>
-          <div>
-            {% for block in section.blocks %}
-              {% assign product = block.settings.product %}
-  
-              {%- if product != blank -%}
-                {% render 'product-card',product: product, block: block %}
-              {%- endif -%}  
-          
-            {% endfor %}
-          </div>
-        </div>
         <button js-modal-close class="modal__close">
           {%- render 'icon-cross' -%}
         </button>
