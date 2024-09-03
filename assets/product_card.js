@@ -69,8 +69,10 @@ class ProductCard extends HTMLElement {
             if (variant.compare_at_price > variant.price) {
                 oldPriceElement.textContent = this.formatMoney(variant.compare_at_price);
                 oldPriceElement.style.display = 'inline';
+                oldPriceElement.classList.remove('hidden');
             } else {
                 oldPriceElement.style.display = 'none';
+                oldPriceElement.classList.add('hidden');
             }
         }
     }
