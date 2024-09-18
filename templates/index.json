@@ -39,37 +39,56 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "lookbook_C4Dhrj": {
+      "type": "lookbook",
+      "blocks": {
+        "product_BFBRhF": {
+          "type": "Product",
+          "settings": {
+            "product": "adidas-classic-backpack",
+            "product_attribute": "Black"
+          }
+        },
+        "product_QYhHxx": {
+          "type": "Product",
+          "settings": {
+            "product": "adidas-superstar-80s",
+            "product_attribute": "White"
+          }
+        },
+        "product_jAxVAh": {
+          "type": "Product",
+          "settings": {
+            "product": "asics-tiger-gel-lyte-v-30-years-of-gel-pack",
+            "product_attribute": "Black"
+          }
+        },
+        "product_BqqEpQ": {
+          "type": "Product",
+          "settings": {
+            "product": "adidas-classic-backpack-legend-ink-multicolour",
+            "product_attribute": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_BFBRhF",
+        "product_QYhHxx",
+        "product_jAxVAh",
+        "product_BqqEpQ"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "description": "<p>Our latest collection demonstrates an elegant eccentricity – bold patterns inspired by traditional nomadic dressing, embroidered buttons, ceramic detailing and artisanal stitching contrast with stark, clean-lined silhouettes that showcase refined modernity.<\/p>",
+        "description_color": "#000000",
+        "background_color": "#000000",
+        "image": "shopify:\/\/shop_images\/lookbook_pf22_02.png"
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "lookbook_C4Dhrj"
   ]
 }

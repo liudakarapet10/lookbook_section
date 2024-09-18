@@ -49,6 +49,9 @@ function openModal() {
   document.body.classList.add(LOCKED_CLASS);
 
   setScrollBarWidth();
+
+  
+  document.querySelector('[js-modal-close]')?.focus();
 }
 
 
